@@ -31,7 +31,6 @@ import re
 import en_core_web_sm
 
 nlp = en_core_web_sm.load()
-nlp_synonyms = en_core_web_sm.load()
 pos_set={'NN','NNS','NNP','NNPS','JJ','JJR','JJS','VB','VBD','VBG','VBN','VBP','VBZ','RB','RBR','RBS'}
 
 
@@ -329,8 +328,8 @@ def TestModel(x_sent):
             print("This is not a spam sms")
             
             
-question="Arriving Today: Official GRE Verbal Reasoning Practice Questions is out for delivery"
-TestModel(question)
+text="Arriving Today: Official GRE Verbal Reasoning Practice Questions is out for delivery"
+TestModel(text)
 
 
      
