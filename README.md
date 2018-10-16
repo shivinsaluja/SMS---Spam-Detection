@@ -8,9 +8,7 @@ The objective of this project is to develop an algorithm which can detect whethe
 
 ## Data Cleaning and Processing
 
-The dataset contains a collection of Spam as well as Normal text messages. Each message/text has been labled as Spam or not spam using labels 0 and 1. 
-0 - Spam SMS
-1 - Not a Spam SMS.
+The dataset contains a collection of Spam as well as Normal text messages. Each message/text has been labled as Spam or not using labels 0 and 1. 
 
 The dataset is cleaned and special symbols and characters are removed using various libararies in python. Certain short forms of different words are replaced with their proper forms  for e.g shouldnt is changed to should not and i'll is changed to I will.Stop words and common words are removed from all the messages using Parts of Speech (Pos) tagging and capital letter are converted to small letters. Each message/text is converted to tokens and is furthur converted into vectors (word embeddings) of dimension 384.Padding is applied to each message so that each message/text is of same length. 
 
