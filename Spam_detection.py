@@ -202,8 +202,7 @@ def clean_dataset():
                     
 clean_dataset()
 
-check_dataset = []
-check_intents =[]
+
 ds = ProcessDataset()
 X_all = (ds.All_statements_vectors)
 All_Intents = ds.All_Intents
