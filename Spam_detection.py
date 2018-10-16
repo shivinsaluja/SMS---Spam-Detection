@@ -93,40 +93,6 @@ def filter_word(word,postag):
     else:
         return ''
 
-def extract_verb(word,postag):
-    if postag in pos_set_extract_verb:
-        return word
-    else:
-        return ''
-
-def extract_noun(word,postag):
-    if postag in pos_set_extract_noun:
-        return word
-    else:
-        return ''
-
-def extract_adjective(word,postag):
-    if postag in pos_set_extract_adjective:
-        return word
-    else:
-        return ''
-
-def extract_adverb(word,postag):
-    if postag in pos_set_extract_adverb:
-        return word
-    else:
-        return ''
-
-
-def get_related(word):
-    filtered_words = [w for w in word.vocab if w.is_lower == word.is_lower and w.prob >= -15]
-    similarity = sorted(filtered_words, key=lambda w: word.similarity(w), reverse=True)
-    return similarity[:5]
-
-
-def print_fine_pos(token):
-    return (token.tag_)
-
 def pad_vec_sequences(sequences,maxlen=20):
     new_sequences = []
     for sequence in sequences:
@@ -212,17 +178,12 @@ def clean_dataset():
                 
                 new_filtered_sentence=[]
                 
-                #word_tokens_nltk = nltk.word_tokenize(x_sent)
-                #word_tokens_spacy = nlp(x_sent)
                 token_map = {}
                 token_map = nltk.pos_tag(word_tokens)
                 token_dictionary={}
                 
                 for i in token_map:
                     token_dictionary[str(i[0])] = str(i[1])
-                #print(token_dictionary)
-                #for tok in word_tokens_spacy:
-                #    token_map[str(tok.text)] = str(tok.tag_)
 
                 for i in filtered_sentence:
                    temp = filter_word(str(i),str(token_dictionary[str(i)]))
@@ -238,9 +199,6 @@ def clean_dataset():
                     writer.writerow([new_sent,1])
                 else:
                     writer.writerow([new_sent,0])
-                    #label = int(label)
-                    #writer.writerow([new_sent,label])
-                    
                     
                     
 clean_dataset()
@@ -316,8 +274,7 @@ def TestModel(x_sent):
     
     word_tokens = word_tokenize(x_sent)
     tokenized_sentence = [w for w in word_tokens]
-    #tokenized_sentence.sort()
-    
+
     new_filtered_sentence=[]
     word_tokens_spacy = nlp(x_sent)
     token_map = {}
